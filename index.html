@@ -2,12 +2,74 @@
 <html>
 <head>
 	<title>BOSSES Encoder/Decoder</title>
+	<script type="text/javascript">
+		function encode(){
+		var plaintext = document.getElementById('Etext').value;
+  		var cipher;
+ 		var chars = plaintext.split("");
+ 		var offset = Math.floor((Math.random()*26));
+ 		for (var i = 0; i < chars.length; i++) {
+ 		  	if(chars[i].charCodeAt(0)<123&&chars[i].charCodeAt(0)>96){
+  		   		if(chars[i].charCodeAt(0)>122-offset){
+  		      		chars[i] = String.fromCharCode(97-((123-offset)-chars[i].charCodeAt(0)));
+  		   		} 		    	else{
+		    		chars[i] = String.fromCharCode(chars[i].charCodeAt(0)+offset);
+		    	}
+		 	}
+ 		}
+  		cipher = chars.join("")+String.fromCharCode(97+offset);
+  		document.getElementById('encodedText').innerHTML = "Encoded Text: "+cipher;
+  		 document.getElementById('decodedText').innerHTML = "";
+  		return false;
+		}
+		function decode(){
+			var cipher = document.getElementById('Dtext').value;
+  			var chars = cipher.split("");
+ 			var offset = chars[chars.length-1].charCodeAt(0)-97;
+  			for (var i = 0; i < chars.length; i++) {
+   				//lowercase letter
+    			if(chars[i].charCodeAt(0)>96&&chars[i].charCodeAt(0)<123){
+      				//letter has to loop around
+      				if(chars[i].charCodeAt(0)-offset<97){
+        				chars[i] = String.fromCharCode(chars[i].charCodeAt(0)+(26-offset));
+      				}
+      				//no looping around
+      				else{
+        				chars[i] = String.fromCharCode(chars[i].charCodeAt(0)-offset);
+      				}
+   				 }
+  			}
+  			//remove offset indicator
+  			chars.splice(chars.length-1, 1);
+  			var plaintext = chars.join("");
+  			document.getElementById('decodedText').innerHTML = "Decoded Text: "+plaintext;
+  			document.getElementById('encodedText').innerHTML = "";
+
+  			return false;
+		}
+	</script>
 </head>
 <body>
+
 <h1> Official BOSSES Encoder/Decoder</h1>
 <h3>Use this website to encode things that you are going to post on the BOSSES, so that the evil administration cannot track you using Securly.</h3>
-<br>
 <h3>You can also use the decoder to decode messages posted by other BOSSES members.</h3>
- 
+<br><br>
+ <form onsubmit="return encode()">
+ 	<h2 style="">Encode a Message:</h2>
+ 	<input type="text" name="encodeText" id="Etext" style="width:40%;padding: 0 0 300px 0;font-size: 18px;">
+ 	<br><br>
+ 	<input type="submit" name="Encode" value="Encode">
+ </form>
+	<h2 id = "encodedText"></h2>
+	 <h2 id = "decodedText"></h2>
+ <br><br>
+ <form onsubmit="return decode()">
+ 	<h2 style="">Decode a Message:</h2>
+ 	<input type="text" name="encodeText" id="Dtext" style="width:600px;padding: 0 0 300px 0;font-size: 18px;" =>
+ 	<br><br>
+ 	<input style="" type="submit" name="Decode" value="Decode">
+ </form>
+	</div>
 </body>
 </html>
