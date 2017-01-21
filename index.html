@@ -9,9 +9,18 @@
  		var chars = plaintext.split("");
  		var offset = Math.floor((Math.random()*26));
  		for (var i = 0; i < chars.length; i++) {
+ 			//lowercase letter
  		  	if(chars[i].charCodeAt(0)<123&&chars[i].charCodeAt(0)>96){
   		   		if(chars[i].charCodeAt(0)>122-offset){
   		      		chars[i] = String.fromCharCode(97-((123-offset)-chars[i].charCodeAt(0)));
+  		   		} 		    	else{
+		    		chars[i] = String.fromCharCode(chars[i].charCodeAt(0)+offset);
+		    	}
+		 	}
+		 	//uppercase letter
+		 	if (chars[i].charCodeAt(0)>64&&chars[i].charCodeAt(0)<91){
+		 		if(chars[i].charCodeAt(0)>90-offset){
+  		      		chars[i] = String.fromCharCode(65-((91-offset)-chars[i].charCodeAt(0)));
   		   		} 		    	else{
 		    		chars[i] = String.fromCharCode(chars[i].charCodeAt(0)+offset);
 		    	}
@@ -38,13 +47,23 @@
         				chars[i] = String.fromCharCode(chars[i].charCodeAt(0)-offset);
       				}
    				 }
+   				//uppercase letter
+   				if(chars[i].charCodeAt(0)>64&&chars[i].charCodeAt(0)<91){
+      				//letter has to loop around
+      				if(chars[i].charCodeAt(0)-offset<65){
+        				chars[i] = String.fromCharCode(chars[i].charCodeAt(0)+(26-offset));
+      				}
+      				//no looping around
+      				else{
+        				chars[i] = String.fromCharCode(chars[i].charCodeAt(0)-offset);
+      				}
+   				 }
   			}
   			//remove offset indicator
   			chars.splice(chars.length-1, 1);
   			var plaintext = chars.join("");
   			document.getElementById('decodedText').innerHTML = "Decoded Text: "+plaintext;
   			document.getElementById('encodedText').innerHTML = "";
-
   			return false;
 		}
 	</script>
