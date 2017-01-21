@@ -14,7 +14,9 @@
  		  		//has to loop around
   		   		if(chars[i].charCodeAt(0)>122-offset){
   		      		chars[i] = String.fromCharCode(97-((123-offset)-chars[i].charCodeAt(0)));
-  		   		} 		    	else{
+  		   		} 	
+  		   		//dont need to loop	    	
+  		   		else{
 		    		chars[i] = String.fromCharCode(chars[i].charCodeAt(0)+offset);
 		    	}
 		 	}
@@ -22,7 +24,9 @@
 		 	if (chars[i].charCodeAt(0)>64&&chars[i].charCodeAt(0)<91){
 		 		if(chars[i].charCodeAt(0)>90-offset){
   		      		chars[i] = String.fromCharCode(65-((91-offset)-chars[i].charCodeAt(0)));
-  		   		} 		    	else{
+  		   		} 		
+  		   		//dont need to loop    	
+  		   		else{
 		    		chars[i] = String.fromCharCode(chars[i].charCodeAt(0)+offset);
 		    	}
 		 	}
