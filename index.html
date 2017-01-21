@@ -2,75 +2,7 @@
 <html>
 <head>
 	<title>BOSSES Encoder/Decoder</title>
-	<script type="text/javascript">
-		function encode(){
-		var plaintext = document.getElementById('Etext').value;
-  		var cipher;
- 		var chars = plaintext.split("");
- 		var offset = Math.floor((Math.random()*26));
- 		for (var i = 0; i < chars.length; i++) {
- 			//lowercase letter
- 		  	if(chars[i].charCodeAt(0)<123&&chars[i].charCodeAt(0)>96){
- 		  		//has to loop around
-  		   		if(chars[i].charCodeAt(0)>122-offset){
-  		      		chars[i] = String.fromCharCode(97-((123-offset)-chars[i].charCodeAt(0)));
-  		   		} 	
-  		   		//dont need to loop	    	
-  		   		else{
-		    		chars[i] = String.fromCharCode(chars[i].charCodeAt(0)+offset);
-		    	}
-		 	}
-		 	//uppercase letter
-		 	if (chars[i].charCodeAt(0)>64&&chars[i].charCodeAt(0)<91){
-		 		if(chars[i].charCodeAt(0)>90-offset){
-  		      		chars[i] = String.fromCharCode(65-((91-offset)-chars[i].charCodeAt(0)));
-  		   		} 		
-  		   		//dont need to loop    	
-  		   		else{
-		    		chars[i] = String.fromCharCode(chars[i].charCodeAt(0)+offset);
-		    	}
-		 	}
- 		}
-  		cipher = chars.join("")+String.fromCharCode(97+offset);
-  		document.getElementById('encodedText').innerHTML = "Encoded Text: "+cipher;
-  		 document.getElementById('decodedText').innerHTML = "";
-  		return false;
-		}
-		function decode(){
-			var cipher = document.getElementById('Dtext').value;
-  			var chars = cipher.split("");
- 			var offset = chars[chars.length-1].charCodeAt(0)-97;
-  			for (var i = 0; i < chars.length; i++) {
-   				//lowercase letter
-    			if(chars[i].charCodeAt(0)>96&&chars[i].charCodeAt(0)<123){
-      				//letter has to loop around
-      				if(chars[i].charCodeAt(0)-offset<97){
-        				chars[i] = String.fromCharCode(chars[i].charCodeAt(0)+(26-offset));
-      				}
-      				//no looping around
-      				else{
-        				chars[i] = String.fromCharCode(chars[i].charCodeAt(0)-offset);
-      				}
-   				 }
-   				//uppercase letter
-   				if(chars[i].charCodeAt(0)>64&&chars[i].charCodeAt(0)<91){
-      				//letter has to loop around
-      				if(chars[i].charCodeAt(0)-offset<65){
-        				chars[i] = String.fromCharCode(chars[i].charCodeAt(0)+(26-offset));
-      				}
-      				//no looping around
-      				else{
-        				chars[i] = String.fromCharCode(chars[i].charCodeAt(0)-offset);
-      				}
-   				 }
-  			}
-  			//remove offset indicator
-  			chars.splice(chars.length-1, 1);
-  			var plaintext = chars.join("");
-  			document.getElementById('decodedText').innerHTML = "Decoded Text: "+plaintext;
-  			document.getElementById('encodedText').innerHTML = "";
-  			return false;
-		}
+	<script type="text/javascript" src="encode-min.js">
 	</script>
 </head>
 <body>
