@@ -11,6 +11,7 @@
  		for (var i = 0; i < chars.length; i++) {
  			//lowercase letter
  		  	if(chars[i].charCodeAt(0)<123&&chars[i].charCodeAt(0)>96){
+ 		  		//has to loop around
   		   		if(chars[i].charCodeAt(0)>122-offset){
   		      		chars[i] = String.fromCharCode(97-((123-offset)-chars[i].charCodeAt(0)));
   		   		} 		    	else{
