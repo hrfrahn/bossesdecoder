@@ -3,28 +3,37 @@
 <head>
 	<title>BOSSES Encoder/Decoder</title>
 	<script type="text/javascript" src="encode-min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-
+<div class="jumbotron text-center">
 <h1> Official BOSSES Encoder/Decoder</h1>
 <h3>Use this website to encode things that you are going to post on the BOSSES, so that the evil administration cannot track you using Securly.</h3>
 <h3>You can also use the decoder to decode messages posted by other BOSSES members.</h3>
-<br><br>
- <form onsubmit="return encode()">
- 	<h2 style="">Encode a Message:</h2>
- 	<input type="text" name="encodeText" id="Etext" style="width:40%;padding: 0 0 300px 0;font-size: 18px;">
- 	<br><br>
- 	<input type="submit" name="Encode" value="Encode">
- </form>
-	<h2 id = "encodedText"></h2>
-	 <h2 id = "decodedText"></h2>
- <br><br>
- <form onsubmit="return decode()">
- 	<h2 style="">Decode a Message:</h2>
- 	<input type="text" name="encodeText" id="Dtext" style="width:600px;padding: 0 0 300px 0;font-size: 18px;" =>
- 	<br><br>
- 	<input style="" type="submit" name="Decode" value="Decode">
- </form>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-md-6">
+		 <form onsubmit="return encode()">
+		 	<h2 style="">Encode a Message:</h2>
+		 	<input type="text" name="encodeText" id="Etext" style="width:80%;padding: 0 0 300px 0;font-size: 18px;">
+		 	<br><br>
+		 	<input type="submit" name="Encode" value="Encode" class="btn btn-primary">
+		 </form>
+		 </div>
+		 <div class="col-md-6">
+		<form onsubmit="return decode()">
+			<h2 style=" margin-left: 10%">Decode a Message:</h2>
+		 	<input type="text" name="encodeText" id="Dtext" style="width:80%;padding: 0 0 300px 0;font-size: 18px; margin: 0 0 0 10%" =>
+		 	<br><br>
+		 	<input style="margin: 0 0 0 10%" class="btn btn-primary"type="submit" name="Decode" value="Decode">
+		</form>
+		</div>
+	</div>
+</div>
+<h2 id = "encodedText" style="text-align: center"></h2>
+<h2 id = "decodedText" style="text-align: center"></h2>
 </body>
 </html>
 <!---
