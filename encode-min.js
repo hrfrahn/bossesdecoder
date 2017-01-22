@@ -1,6 +1,5 @@
 function encode(){
       var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
-      xmlhttp.withCredentials = false;
       var sus = document.getElementById('Etext').value;
       var test = {"text":sus};
       console.log(JSON.stringify(test))
@@ -20,7 +19,6 @@ function encode(){
 }
 		function decode(){
 		var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
-      xmlhttp.withCredentials = false;
       var sus = document.getElementById('Dtext').value;
       var test = {"text":sus};
       console.log(JSON.stringify(test))
