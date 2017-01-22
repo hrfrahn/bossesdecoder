@@ -1,6 +1,5 @@
 function encode(){
       var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
-      xmlhttp.setRequestHeader('Access-Control-Allow-Headers', '*');
       xmlhttp.withCredentials = false;
       var sus = document.getElementById('Etext').value;
       var test = {"text":sus};
@@ -20,8 +19,7 @@ function encode(){
       return false;
 }
 		function decode(){
-			var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
-      xmlhttp.setRequestHeader('Access-Control-Allow-Headers', '*');
+		var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
       xmlhttp.withCredentials = false;
       var sus = document.getElementById('Dtext').value;
       var test = {"text":sus};
